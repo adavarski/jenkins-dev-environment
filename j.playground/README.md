@@ -46,13 +46,13 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 - OPTIONAL: Migrate BB DB to external PostresSQL database: 
 
-Setup/Test database connection (Note: atl_database docker container)
+Setup/Test database connection (Note: atl_database docker container with [credentials](https://github.com/adavarski/jenkins-dev-environment/blob/main/pg-init-scripts/init.sql))
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/Bitbucket-external-database-migration.png" width="900">
 
 After migration we will have:
 
-https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-external-database-migrated.png
+<img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-external-database-migrated.png" width="900">
 
  
 # Jenkins setup (http://localhost:8080/ -> default user/password: admin/jenkins) 
