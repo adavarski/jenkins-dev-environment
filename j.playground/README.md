@@ -8,7 +8,7 @@ After `docker-compose up -d`
 
 - Setup admin user credentials (Example: admin/bb-admin-password).
 
-- Create admin personal access token.
+- Create admin personal access token (Ref: https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html)
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-admin-dev-personal-access-token-for-jenkins.png" width="900">
 
