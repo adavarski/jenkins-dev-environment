@@ -28,9 +28,9 @@ Custom Jenkins image is built with the following features:
 - [UI tests capability](#ui-tests-capability)
 - [Jenkins hardening](#jenkins-hardening)
 
-## Atlassian Bitbucket to host some development projects/repos
+## Atlassian Bitbucket (to host some development projects/repos).
 
-Set some secure passwords in .env and pg-init-scripts/init.sql
+Note: Set some secure passwords in .env and pg-init-scripts/init.sql if you don't want current.
 
 ## Run development environment 
 
