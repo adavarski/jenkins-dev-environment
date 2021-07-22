@@ -4,7 +4,7 @@ This repo contains a docker/docker-compose configuration for Jenkins custom Dock
 ## Requirements
 git, docker and docker-compose to be installed
 ```
-$ sh ./utils/docker_setup.sh
+$ sh ./utils/docker-setup.sh
 ```
 
 ## Jenkins custom Docker image
