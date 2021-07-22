@@ -230,7 +230,7 @@ node {
 
 This feature is enabled by the [CloudBees AWS Credentials plugin](https://plugins.jenkins.io/aws-credentials).
 
-## Capability of running Terraform modules
+## Capability of running Terraform modules (AWS example)
 
 Note: Use Dockerfile-TF for jenkins custom image
 
