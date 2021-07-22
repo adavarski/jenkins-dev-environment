@@ -71,7 +71,7 @@ Pipeline from SCM
 
 Select a Bitbucket Server instance when creating a Pipeline
 
-<img src="" width="900">
+<img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-pipeline-SCM-Jenkinsfile.png" width="900">
 
 
 Check pipeline status:
