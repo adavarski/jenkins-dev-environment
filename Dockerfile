@@ -1,5 +1,5 @@
 FROM jenkins/jenkins:lts-alpine
-LABEL maintainer "A.Davarski>"
+LABEL maintainer "A.Davarski"
 
 ARG JMX_EXPORTER_VERSION=0.14.0
 ARG GECKODRIVER_VERSION=0.28.0
