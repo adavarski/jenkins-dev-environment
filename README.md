@@ -230,6 +230,53 @@ node {
 
 This feature is enabled by the [CloudBees AWS Credentials plugin](https://plugins.jenkins.io/aws-credentials).
 
+## Capability of running Terraform modules
+
+Note: Use Dockerfile-TF for jenkins custom image
+
+```groovy
+...
+String awsCredentialsId = 'AWS-demo'
+...
+    stage('TF init') {
+      steps {
+        dir('aws-tf/Jenkins-EC2') {
+          script {
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
+            credentialsId: awsCredentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+            {
+              sh "terraform init"
+            }
+            
+            }
+          }
+        }
+      }
+
+
+     stage('TF apply env') {
+      when{ equals expected: "CREATE", actual: "${params.Action}"}
+      steps {
+        dir('aws-tf/Jenkins-EC2') {
+          script {
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', 
+            credentialsId: awsCredentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',  
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
+             {
+             sh "terraform apply -auto-approve"
+             }
+            }
+          }
+        }
+      }
+...
+
+```
+This feature is enabled by the [CloudBees AWS Credentials plugin](https://plugins.jenkins.io/aws-credentials).
+
 ## In-process Script Approval
 
 [An in-process script or a method signature can be approved in Jenkins](https://jenkins.io/doc/book/managing/script-approval) with the execution of [approve-signature.groovy](scripts/approve-signature.groovy). It only happens if the following environment variable is defined:
