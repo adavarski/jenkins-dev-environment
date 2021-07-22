@@ -1,5 +1,5 @@
 # Jenkins + Atlassian Bitbucket + Sonarqube + etc. docker-compose based development environment  
-This repo contains a docker-compose configuration for Jenkins custom image + Sonarqube && Atlassian Bitbucket (each application comes with it's own PostgreSQL instance, user, database and docker volume).
+This repo contains a docker/docker-compose configuration for Jenkins custom image + Sonarqube && Atlassian Bitbucket (each application comes with it's own PostgreSQL instance, user, database and docker volume).
 
 ## Requirements
 git, docker and docker-compose to be installed
