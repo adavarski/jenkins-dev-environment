@@ -1,0 +1,85 @@
+version: '2.4'
+services:
+
+  jenkins:
+    build: .
+    image: davarski/jenkins-dev
+    container_name: jenkins-dev
+    volumes:
+      - jenkins_data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - SONARQUBE_URL=http://sonarqube:9000
+      - SLACK_WORKSPACE=devops-dev
+      - SLACK_TOKEN=ExiUpOiyEZnngKc45fEZOc8B
+    ports:
+      - 8080:8080
+      - 8081:8081
+    depends_on:
+      - sonarqube
+
+  sonarqube:
+    image: sonarqube:7.8-community
+    container_name: sonarqube
+    volumes:
+      - sonarqube_conf:/opt/sonarqube/conf
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+      - sonarqube_extensions:/opt/sonarqube/extensions
+    environment:
+      - sonar.jdbc.url=jdbc:postgresql://postgres/sonar
+    ports:
+      - 9000:9000
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: postgres:11-alpine
+    container_name: postgres
+    volumes:
+      - postgresql:/var/lib/postgresql
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sonar"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  bitbucket:
+    image: atlassian/bitbucket-server:7.1-jdk11
+    container_name: bitbucket
+    ports:
+      - 7990:7990
+      - 7999:7999
+    links:
+      - atl_database
+    volumes:
+      - bitbucket-data:/var/atlassian/application-data/bitbucket
+
+  atl_database:
+    image: postgres:12.2
+    container_name: atl_database
+    ports:
+      - 5431:5432
+    volumes:
+      - atl_database-data:/var/lib/postgresql/data      
+      - ./pg-init-scripts:/docker-entrypoint-initdb.d
+    environment:    
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+
+volumes:
+  jenkins_data:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_logs:
+  sonarqube_extensions:
+  postgresql:
+  postgresql_data:
+  bitbucket-data:
+  atl_database-data:
+
