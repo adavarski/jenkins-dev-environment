@@ -163,7 +163,8 @@ node {
     ...
 }
 ```
-
+Note: See [EXAMPLE](https://github.com/adavarski/jenkins-dev-environment/tree/main/j.playground)
+    
 ## Adding a global credentials
 
 [A new global credentials can be created in Jenkins](https://jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials) with the execution of [add-credentials.groovy](scripts/add-credentials.groovy). It only happens if the following environment variables are defined:
