@@ -71,3 +71,4 @@ Pipeline from SCM : Select a Bitbucket Server instance when creating a Pipeline
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-pipeline-status.png" width="900">
 
 
+NOTE: Optional create Application Link between Jenkins && Bitbucket (Ref: https://plugins.jenkins.io/atlassian-bitbucket-server-integration/)
