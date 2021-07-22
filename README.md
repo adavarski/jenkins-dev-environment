@@ -70,7 +70,19 @@ atl_database   docker-entrypoint.sh postgres    Up             0.0.0.0:5431->543
 bitbucket      /usr/bin/tini -- /entrypoi ...   Up             0.0.0.0:7990->7990/tcp, 0.0.0.0:7999->7999/tcp           
 jenkins-dev    /entrypoint.sh                   Up             50000/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8081->8081/tcp
 postgres       docker-entrypoint.sh postgres    Up (healthy)   5432/tcp                                                 
-sonarqube      ./bin/run.sh                     Up             0.0.0.0:9000->9000/tcp  
+sonarqube      ./bin/run.sh                     Up             0.0.0.0:9000->9000/tcp 
+
+$ docker-compose logs sonarqube|tail
+sonarqube       | 2021.07.21 15:37:49 INFO  ce[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.percolator.PercolatorPlugin]
+sonarqube       | 2021.07.21 15:37:49 INFO  ce[][o.e.p.PluginsService] loaded plugin [org.elasticsearch.transport.Netty4Plugin]
+sonarqube       | 2021.07.21 15:37:54 INFO  ce[][o.s.s.e.EsClientProvider] Connected to local Elasticsearch: [127.0.0.1:9001]
+sonarqube       | 2021.07.21 15:37:54 INFO  ce[][o.sonar.db.Database] Create JDBC data source for jdbc:postgresql://postgres/sonar
+sonarqube       | 2021.07.21 15:38:07 INFO  ce[][o.s.s.p.ServerFileSystemImpl] SonarQube home: /opt/sonarqube
+sonarqube       | 2021.07.21 15:38:08 INFO  ce[][o.s.c.c.CePluginRepository] Load plugins
+sonarqube       | 2021.07.21 15:38:21 INFO  ce[][o.s.c.c.ComputeEngineContainerImpl] Running Community edition
+sonarqube       | 2021.07.21 15:38:22 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is operational
+sonarqube       | 2021.07.21 15:38:22 INFO  app[][o.s.a.SchedulerImpl] Process[ce] is up
+sonarqube       | 2021.07.21 15:38:22 INFO  app[][o.s.a.SchedulerImpl] SonarQube is up
 ```
 
 ## Access J && BB:
@@ -79,6 +91,13 @@ sonarqube      ./bin/run.sh                     Up             0.0.0.0:9000->900
 |Bitbucket |http://localhost:7990/|
 |Jenkins |http://localhost:8080/|
 The PostgreSQL database is only accessible from inside the cluster on port `5432`.
+
+## Clean environment
+
+```
+docker-compose down
+docker volume ls|grep jenkins-dev-environment|awk '{print $2}'|xargs docker volume rm -
+```
 
 # Jenkins custom Docker image details, features and howto usage
 
