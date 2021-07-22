@@ -130,14 +130,14 @@ This feature is enabled by the [Ansible plugin](https://plugins.jenkins.io/ansib
 
 ## Docker in Docker
 
-The myjenkins Docker image is prepared itself to enable the execution of Docker commands. So, you are able to run pipelines in the myjenkins Docker container that build Docker images, push Docker images to a Docker Registry or execute any other Docker command (example below). The only requirement is to [bind mount](https://docs.docker.com/storage/bind-mounts) your host Docker daemon Unix socket to the container Docker daemon Unix socket: `-v /var/run/docker.sock:/var/run/docker.sock`.
+The jenkins Docker image is prepared itself to enable the execution of Docker commands. So, you are able to run pipelines in the jenkins Docker container that build Docker images, push Docker images to a Docker Registry or execute any other Docker command (example below). The only requirement is to [bind mount](https://docs.docker.com/storage/bind-mounts) your host Docker daemon Unix socket to the container Docker daemon Unix socket: `-v /var/run/docker.sock:/var/run/docker.sock`.
 
 ```groovy
 node {
     def appDockerImage
     ...
     stage('Build Docker Image') {
-        appDockerImage = docker.build("esignbr/logistics")
+        appDockerImage = docker.build("davarski/webapp-docker")
     }
     stage('Deploy Docker Image') {
         docker.withRegistry("", "dockerhub") {
@@ -208,6 +208,8 @@ Jenkins can be integrated to [Bitbucket](https://www.atlassian.com/software/bitb
 - BITBUCKET_CREDENTIALS_ID - the global credentials id previously added to Jenkins with the Bitbucket *username* and *password*
 
 This feature is enabled by the [Bitbucket plugin](https://plugins.jenkins.io/bitbucket).
+
+ For better integration you can install  [Bitbucket Server integration plugin](https://plugins.jenkins.io/atlassian-bitbucket-server-integration/): See [example using this plugin](https://github.com/adavarski/jenkins-dev-environment/tree/main/j.playground).
 
 ## Integration with SonarQube
 
