@@ -35,6 +35,16 @@ Custom Jenkins image is built with the following features:
 
 Note: Set some secure passwords in .env and pg-init-scripts/init.sql if you needed.
 
+During configuration of the applications via the setup procedure, use the following database settings:
+
+host: atl_database
+port: 5432
+database: <app>db
+database user: <app>user
+database user password: <password specified in init.sql>
+    
+To fully clean reset an application, you have to delete the associated docker volume and clean the associated database.
+
 ## Run development environment 
 
 ```
@@ -51,7 +61,7 @@ Creating jenkins-dev  ... done
 
 ```
 
-## Check dev environment
+## Check development environment
 ```
 $ docker-compose ps 
     Name                  Command                  State                                 Ports                          
@@ -63,7 +73,7 @@ postgres       docker-entrypoint.sh postgres    Up (healthy)   5432/tcp
 sonarqube      ./bin/run.sh                     Up             0.0.0.0:9000->9000/tcp  
 ```
 
-## Access
+## Access J && BB:
 |Application|URL|
 |--|--|
 |Bitbucket |http://localhost:7990/|
