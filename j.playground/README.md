@@ -1,12 +1,12 @@
 After `docker-compose up -d`
 
-# URL: http://localhost:7990/ for Bitbucket setup
+# Bitbucket setup (http://localhost:7990/)
 
 - Login to your Attlassian account and generate licence.  
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-license.png" width="900">
 
-- Setup admin user credentials (Example: admin/bb-admin-password).
+- Setup admin user credentials (Example: admin/${bb-admin-password}).
 
 - Create admin personal access token (Ref: https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html)
 
@@ -44,7 +44,7 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-repo-pushed.png" width="900">
 
 
-# URL: http://localhost:8080/ for Jenkins setup (default user/password: admin/jenkins) 
+# Jenkins setup (http://localhost:8080/ -> default user/password: admin/jenkins) 
 
 - Install Bitbucket Server Integration plugin (Ref: https://plugins.jenkins.io/atlassian-bitbucket-server-integration/)
 
