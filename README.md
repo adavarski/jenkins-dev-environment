@@ -1,6 +1,11 @@
-# Jenkins custom Docker image
+Docker Compose Jenkins + Atlassian Bitbucket + Sonarqube development environment  
+This contains a docker-compose configuration for Jenkins custom image + Sonarqube, Atlassian Bitbucket running with separate databases on PostgreSQL (each application comes with it's own user, database and docker volume).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Docker Build status](https://img.shields.io/docker/build/esignbr/myjenkins.svg)](https://hub.docker.com/r/esignbr/myjenkins/builds) [![Docker Pulls](https://img.shields.io/docker/pulls/esignbr/myjenkins.svg)](https://hub.docker.com/r/esignbr/myjenkins)
+# Requirements
+git, docker and docker-compose to be installed
+
+
+# Jenkins custom Docker image
 
 #This custom Jenkins image is built with the following features:
 
@@ -21,7 +26,7 @@
 - [UI tests capability](#ui-tests-capability)
 - [Jenkins hardening](#jenkins-hardening)
 
-#Atlassian Bitbucket to host projects/repos
+# Atlassian Bitbucket to host projects/repos
 
 
 
