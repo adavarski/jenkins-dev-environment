@@ -50,31 +50,25 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-install-bitbucket-server-integration-plugin.png" width="900">
 
-Setup Bitbucket Server Integration plugin: Add a Bitbucket Server instance (Credentials: Kind --> Bitbucket personal access token ) ---> Test Connection. 
+- Setup Bitbucket Server Integration plugin: Add a Bitbucket Server instance (Credentials: Kind --> Bitbucket personal access token ) ---> Test Connection. 
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-bitbucket-server-integration-plugin-setup.png" width="900">
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-credentials-bitbuvket-token.png" width="900">
 
-
-and add bitbucket user/password credentials
-
-add dockerhub credentials also
+- Add needed credentials for pipelines: bitbucket user/password credentials && dockerhub credentials also
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-credentials-all.png" width="900">
 
 
-Create pipeline in Jenkins 
+- Create pipeline in Jenkins 
 
+Pipeline from SCM : Select a Bitbucket Server instance when creating a Pipeline
 
-Pipeline from SCM 
-
-Select a Bitbucket Server instance when creating a Pipeline
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-pipeline-SCM-Jenkinsfile.png" width="900">
 
-
-Check pipeline status:
+- Run pipeline and check status:
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-pipeline-status.png" width="900">
 
