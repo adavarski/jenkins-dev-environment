@@ -44,7 +44,7 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-repo-pushed.png" width="900">
 
 
-- OPTIONAL: Migrate BB to external database 
+- OPTIONAL: Migrate BB DB to external PostresSQL database: 
 
 Setup/Test database connection (Note: atl_database docker container)
 
