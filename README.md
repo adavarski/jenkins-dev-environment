@@ -36,13 +36,13 @@ Custom Jenkins image is built with the following features:
 Note: Set some secure passwords in .env and pg-init-scripts/init.sql if you needed.
 
 During configuration of the applications via the setup procedure, use the following database settings:
-
+```
 host: atl_database
 port: 5432
 database: <app>db
 database user: <app>user
 database user password: <password specified in init.sql>
-    
+``` 
 To fully clean reset an application, you have to delete the associated docker volume and clean the associated database.
 
 ## Run development environment 
