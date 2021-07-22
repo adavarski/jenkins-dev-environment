@@ -13,12 +13,12 @@ After `docker-compose up -d`
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-admin-dev-personal-access-token-for-jenkins.png" width="900">
 
 
-Create Project:DEMO/repo:webapp-docker @Bitbucket
+- Create Project:DEMO/repo:webapp-docker @Bitbucket
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucker-create-repo-in-DEMO-project.png" width="900">
 
 
 
-Puch existing project to repo
+- Puch existing project to repo
 ```
 cd ./webapp-docker
 git init
@@ -27,7 +27,7 @@ git commit -m "Initial Commit"
 git remote add origin http://localhost:7990/scm/demo/webapp-docker.git
 git push -u origin master
 ```
-example:
+Example push:
 ```
 $ git push -u origin master
 Username for 'http://localhost:7990': admin
@@ -60,11 +60,9 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-credentials-all.png" width="900">
 
-
 - Create pipeline in Jenkins 
 
 Pipeline from SCM : Select a Bitbucket Server instance when creating a Pipeline
-
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-pipeline-SCM-Jenkinsfile.png" width="900">
 
