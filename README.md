@@ -225,7 +225,7 @@ Jenkins can be integrated to [Bitbucket](https://www.atlassian.com/software/bitb
 
 This feature is enabled by the [Bitbucket plugin](https://plugins.jenkins.io/bitbucket).
 
- For better integration you can install  [Bitbucket Server integration plugin](https://plugins.jenkins.io/atlassian-bitbucket-server-integration/): See [example using this plugin](https://github.com/adavarski/jenkins-dev-environment/tree/main/j.playground).
+ For better integration you can install  [Bitbucket Server integration plugin](https://plugins.jenkins.io/atlassian-bitbucket-server-integration/): See [example] (https://github.com/adavarski/jenkins-dev-environment/tree/main/j.playground) using Bitbucket Server integration plugin.
 
 ## Integration with SonarQube
 
