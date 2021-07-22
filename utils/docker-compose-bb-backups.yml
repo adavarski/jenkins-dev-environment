@@ -102,7 +102,7 @@ backups:
              && while true; do
              PGPASSWORD="$$(echo $$POSTGRES_PASSWORD)"
              pg_dump
-             -h postgres
+             -h atl_database
              -p 5432
              -d bitbucketdb
              -U bitbucketdbuser | gzip > /srv/bitbucket-postgres/backups/bitbucket-postgres-backup-$$(date "+%Y-%m-%d_%H-%M").gz
