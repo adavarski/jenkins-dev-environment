@@ -1,13 +1,12 @@
-Docker Compose Jenkins + Atlassian Bitbucket + Sonarqube development environment  
-This contains a docker-compose configuration for Jenkins custom image + Sonarqube, Atlassian Bitbucket running with separate databases on PostgreSQL (each application comes with it's own user, database and docker volume).
+# Docker Compose Jenkins + Atlassian Bitbucket + Sonarqube + etc. development environment  
+This repo contains a docker-compose configuration for Jenkins custom image + Sonarqube && Atlassian Bitbucket (each application comes with it's own PostgreSQL instance, user, database and docker volume).
 
 # Requirements
 git, docker and docker-compose to be installed
 
+## Jenkins custom image
 
-# Jenkins custom Docker image
-
-#This custom Jenkins image is built with the following features:
+Custom Jenkins image is built with the following features:
 
 - [Preinstalled plugins](#preinstalled-plugins)
 - [Default administrator](#default-administrator)
@@ -28,6 +27,43 @@ git, docker and docker-compose to be installed
 
 # Atlassian Bitbucket to host projects/repos
 
+Set some secure passwords in .env and pg-init-scripts/init.sql
+
+# Run development environment 
+
+```
+$ sudo sysctl -w vm.max_map_count=262144 // Note: For sonarqube to work properly
+$ docker-compose up -d 
+Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
+Creating network "jenkins-dev-environment_default" with the default driver
+Creating postgres     ... done
+Creating atl_database ... done
+Creating bitbucket    ... done
+Creating sonarqube    ... done
+Creating jenkins-dev  ... done
+
+```
+
+# Check environment
+```
+$ docker-compose ps 
+    Name                  Command                  State                                 Ports                          
+------------------------------------------------------------------------------------------------------------------------
+atl_database   docker-entrypoint.sh postgres    Up             0.0.0.0:5431->5432/tcp                                   
+bitbucket      /usr/bin/tini -- /entrypoi ...   Up             0.0.0.0:7990->7990/tcp, 0.0.0.0:7999->7999/tcp           
+jenkins-dev    /entrypoint.sh                   Up             50000/tcp, 0.0.0.0:8080->8080/tcp, 0.0.0.0:8081->8081/tcp
+postgres       docker-entrypoint.sh postgres    Up (healthy)   5432/tcp                                                 
+sonarqube      ./bin/run.sh                     Up             0.0.0.0:9000->9000/tcp  
+```
+
+## Access
+|Application|URL|
+|--|--|
+|Bitbucket |http://localhost:7990/|
+|Jenkins |http://localhost:8080/|
+The PostgreSQL database is only accessible from inside the cluster on port `5432`.
+
+# Jenkins custom Docker image details, features and howto usage
 
 
 ## Preinstalled plugins
