@@ -1,7 +1,7 @@
-# Docker Compose Jenkins + Atlassian Bitbucket + Sonarqube + etc. development environment  
+# Jenkins + Atlassian Bitbucket + Sonarqube + etc. docker-compose based development environment  
 This repo contains a docker-compose configuration for Jenkins custom image + Sonarqube && Atlassian Bitbucket (each application comes with it's own PostgreSQL instance, user, database and docker volume).
 
-# Requirements
+## Requirements
 git, docker and docker-compose to be installed
 
 ## Jenkins custom image
@@ -25,14 +25,15 @@ Custom Jenkins image is built with the following features:
 - [UI tests capability](#ui-tests-capability)
 - [Jenkins hardening](#jenkins-hardening)
 
-# Atlassian Bitbucket to host projects/repos
+## Atlassian Bitbucket to host some development projects/repos
 
 Set some secure passwords in .env and pg-init-scripts/init.sql
 
-# Run development environment 
+## Run development environment 
 
 ```
 $ sudo sysctl -w vm.max_map_count=262144 // Note: For sonarqube to work properly
+
 $ docker-compose up -d 
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
 Creating network "jenkins-dev-environment_default" with the default driver
@@ -44,7 +45,7 @@ Creating jenkins-dev  ... done
 
 ```
 
-# Check environment
+## Check dev environment
 ```
 $ docker-compose ps 
     Name                  Command                  State                                 Ports                          
