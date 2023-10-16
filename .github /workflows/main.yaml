@@ -1,0 +1,28 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main # Replace with your branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    
+    - name: Build Docker Image
+      run: docker build -t davarski/jenkins-docker-nodeapp .
+    
+    - name: Test Docker Image
+      run: docker run --rm davarski/jenkins-docker-nodeapp echo "Tests passed"
+    
+    - name: Push Docker Image
+      run: |
+        docker push davarski/jenkins-docker-nodeapp:${GITHUB_RUN_NUMBER}
+        docker push davarski/jenkins-docker-nodeapp:latest
