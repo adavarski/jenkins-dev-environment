@@ -24,5 +24,4 @@ jobs:
     
     - name: Push Docker Image
       run: |
-        docker push davarski/jenkins-docker-nodeapp:${GITHUB_RUN_NUMBER}
         docker push davarski/jenkins-docker-nodeapp:latest
