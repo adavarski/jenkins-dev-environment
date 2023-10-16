@@ -1,5 +1,3 @@
-runs-on: self-hosted
-
 name: Build and Push Docker Image
 
 on:
@@ -9,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout Repository
