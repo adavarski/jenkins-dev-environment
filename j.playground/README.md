@@ -61,6 +61,8 @@ After migration we will have:
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-install-bitbucket-server-integration-plugin.png" width="900">
 
+- Create BB personal access token - > http://localhost:7990/plugins/servlet/access-tokens/add
+- 
 - Setup Bitbucket Server Integration plugin: Add a Bitbucket Server instance (Credentials: Kind --> Bitbucket personal access token ) ---> Test Connection. 
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/jenkins-bitbucket-server-integration-plugin-setup.png" width="900">
