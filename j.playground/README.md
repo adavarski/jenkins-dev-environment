@@ -2,7 +2,7 @@ After `docker-compose up -d`
 
 # Bitbucket setup (http://localhost:7990/)
 
-- Login to your Attlassian account and generate licence.  
+- Login to your Attlassian account and generate licence (use existing account or add account).  
 
 <img src="https://github.com/adavarski/jenkins-dev-environment/blob/main/j.playground/pictures/bitbucket-license.png" width="900">
 
